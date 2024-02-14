@@ -11,8 +11,6 @@ import ru.springgb.cliententity.model.Task;
 import ru.springgb.clientexecutor.service.ExecutorService;
 import ru.springgb.clienttask.service.TaskService;
 
-import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -90,7 +88,9 @@ public class ViewControllerImpl implements ViewController{
 
     ////////изменение
     @PostMapping("/tasks/update/{id}")
-    private String updateTaskValid(@PathVariable("id") Long id, @ModelAttribute @Valid Task task, BindingResult result) {
+    private String updateTaskValid(@PathVariable("id") Long id,
+                                   @ModelAttribute @Valid Task task,
+                                   BindingResult result) {
         if (result.hasErrors()) {
             return "updateTask";
         }
@@ -156,21 +156,6 @@ public class ViewControllerImpl implements ViewController{
     }
     ///////////////////
 
-    @GetMapping({"/searchTask","/searchTask{status}"})
-    public String searchTaskByTitle(@ModelAttribute("status") @RequestParam("status") Optional<String> status,
-                                    Model model,Task task){
-        System.out.println(status);
-
-        if(status.isPresent()) {
-            List<Task> taskList = taskService.getTaskStatus(status.get());
-            model.addAttribute("task",task);
-            model.addAttribute("task2", taskList);
-            return "tasks";
-        }
-        else
-        {
-            return "task/searchTask";}
-    }
 
 
 
