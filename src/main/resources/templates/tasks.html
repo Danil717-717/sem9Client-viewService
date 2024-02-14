@@ -34,7 +34,6 @@
             </thead>
             <tbody>
             <tr th:each="task:${tasks}">
-<!--                <td class="idTask" ><a class="linkId" th:href="@{/index/tasks/{id}(id=${task.id})}" th:text="${task.id}"></a></td>-->
                 <td class="idTask"  th:text="${task.id}"></td>
                 <td class="descriptionTask" th:text="${task.description}"></td>
                 <td th:text="${task.status}"></td>

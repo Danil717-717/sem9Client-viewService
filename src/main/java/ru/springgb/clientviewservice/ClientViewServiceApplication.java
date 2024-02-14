@@ -3,7 +3,7 @@ package ru.springgb.clientviewservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"ru.springgb.clienttask","ru.springgb.clientexecutor"})
 public class ClientViewServiceApplication {
 
     public static void main(String[] args) {
