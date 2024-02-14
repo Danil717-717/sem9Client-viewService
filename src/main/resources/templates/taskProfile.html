@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+        <link th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <h1 th:text="Task + ${task.id}">Task:</h1>
+    <p>ID: <span th:text="${task.id}"></span></p>
+    <p>Description: <span th:text="${task.description}"></span></p>
+    <p>Status: <span th:text="${task.status}"></span></p>
+    <p>CompletionTime: <span th:text="${task.completionTime}"></span></p>
+    <p>Executors: <span th:text="${task.executors}"></span></p>
+
+
+    <h1>-------------------------------------------------</h1>
+
+
+    <div>
+        <form th:action="@{/index/tasks/executors/{id}(id=${task.id})}" method="POST">
+            <input type="text" name="name" th:value="${name}" placeholder="Input name executor" size="50">
+            <button type="submit" class="btn_info" >Add  Executor</button>
+            <button type="reset" class="btn_info" >Reset</button>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

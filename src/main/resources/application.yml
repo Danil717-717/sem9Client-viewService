@@ -1,0 +1,12 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: viewService
+
+  cloud:
+    discovery:
+      enabled: true
+  eureka:
+    instance:
+      hostname: localhost

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Executor Profile</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <h1 th:text="Executor + ${executor.id}">Executor:</h1>
+    <p>ID: <span th:text="${executor.id}"></span></p>
+    <p>Name: <span th:text="${executor.name}"></span></p>
+    <p>Tasks: <span th:text="${executor.tasks}"></span></p>
+
+
+    <h1>-------------------------------------------------</h1>
+
+    <div>
+        <form th:action="@{/index/executors/tasks/{id}(id=${executor.id})}" method="POST">
+            <input type="text" name="name" th:value="${description}" placeholder="Input description task" size="50">
+            <select name="status" id="status">
+                <option th:each="status : ${T(ru.springgb.sem8HWw.Task.Status).values()}"
+                        th:value="${status}" th:text="${status}"></option>
+            </select>
+            <button type="submit" class="btn_info" >Add  Task</button>
+            <button type="reset" class="btn_info" >Reset</button>
+        </form>
+    </div>
+
+</body>
+</html>
